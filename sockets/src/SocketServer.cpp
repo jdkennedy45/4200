@@ -44,7 +44,7 @@ void SocketServer::run()
     int zip_length = socket_server->tcp_text_length;
     Poco::Net::StreamSocket connect();
     
-    //convert zip_length to ascii in order to send as bytes (10 is just a padding, im expecting max 10 bytes)
+    //convert zip_length to ascii in order to send as bytes (10 is for decimal base)
     itoa(zip_length, zip_length_ascii, 10);
     //cout << "Length of zipped file size: " << zip_length_ascii << endl;
     
