@@ -39,7 +39,6 @@ void SocketServer::run()
     //retrieve the zip file passed when object is created
     char* zip_file = socket_server->tcp_text;
     
-    
     char zip_length_ascii[10];
     //retrieve the length of zip file from object
     int zip_length = socket_server->tcp_text_length;
@@ -62,23 +61,6 @@ void SocketServer::run()
     
     int num_bytes_sent = zip_size_seperate + zip_bytes;
     std::cout << endl << "total bytes sent to client: " << num_bytes_sent << endl;
-	
-	//protocol choices
-	//the receiver is going to have a problem with determining
-	//when it has received the entire file (unless it is ascii characters)
-	//when asked for bytes, TCP can only provide what it has obtained
-	//that has no errors and is in order
-	
-	//1. could send a header with the file size embedded
-	//2. could send the file size separately
-	//3. if the data is ascii, check for null terminator
-	
-	//include the null terminator in the byte count
-    
-    
-    
-    
-	//int num_bytes_sent = client_connection.sendBytes(socket_server->tcp_text, socket_server->tcp_text_length + 1);
 }
 
 SocketServer::SocketServer(std::string ip_address, int port_num, char* tcp_text, int tcp_text_length) 
